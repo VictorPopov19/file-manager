@@ -1,0 +1,27 @@
+<div class="panel panel-white box">
+    <div class="panel-body" >
+          <table class="table  table-hover ">
+            <thead>
+                <tr>
+                    <th >Filename</th>
+                    <th>Size</th>
+                </tr>
+            </thead>
+            <tbody >
+            <tr *ngIf="path"><td  colspan="2" (click)="goToOutFolder()">...</td></tr>
+            <tr *ngFor="let d of data">
+                <td *ngIf="d.type==='dir'"  >
+                  <a (click)="goToInFolder(d.name)"><span ><i class="fa fa-folder"></i></span>
+                      <span>{{d.name}}</span>
+                  </a>
+                </td>
+                <td *ngIf="d.type!=='dir'">
+                      <span>{{d.name}}</span>
+                </td>
+                <td> <span>{{d.size}}</span></td>
+            </tr>
+            </tbody>
+          </table>
+    </div>
+
+</div>
